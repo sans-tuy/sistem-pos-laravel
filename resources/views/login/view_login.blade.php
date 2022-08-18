@@ -31,7 +31,7 @@
           @error('username')  
           is-invalid
           @enderror
-          " placeholder="Username" name="username">
+          " placeholder="Username" name="username" value="{{ old('username') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

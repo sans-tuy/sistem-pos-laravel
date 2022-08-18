@@ -27,14 +27,14 @@ class UserData extends Seeder
                 'name' => 'Kasir',
                 'email' => 'kasir@gmail.com',
                 'username' => 'kasir',
-                'level' => 1,
+                'level' => 2,
                 'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Pimpinan',
                 'email' => 'pimpinan@gmail.com',
                 'username' => 'pimpinan',
-                'level' => 1,
+                'level' => 3,
                 'password' => bcrypt('123456')
             ],
         ];
