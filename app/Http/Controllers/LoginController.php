@@ -9,12 +9,14 @@ class LoginController extends Controller
 {
     public function index(){
         if ($user = Auth::user()) {
-            if ($user -> level == 1) {
-                return redirect()->intended('beranda');
-            }
-            elseif ($user -> level == 2) {
-                return redirect()->intended('kasir');
-            }
+
+            return redirect()->intended('/home');
+            // if ($user -> level == 1) {
+            //     return redirect()->intended('beranda');
+            // }
+            // elseif ($user -> level == 2) {
+            //     return redirect()->intended('kasir');
+            // }
         }
         return view('login.view_login');
     }
@@ -31,16 +33,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
-            $auth = Auth::user();
+            // if ($auth->level == 1) {
+            //     return redirect()->intended('beranda');
+            // }
+            // elseif ($auth->level == 2) {
+            //     return redirect()->intended('kasir');
+            // }
 
-            if ($auth->level == 1) {
-                return redirect()->intended('beranda');
-            }
-            elseif ($auth->level == 2) {
-                return redirect()->intended('kasir');
-            }
-
-            return redirect()->intended('/');
+            return redirect()->intended('/home');
         }
 
         return back()->withErrors([

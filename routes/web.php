@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Beranda;
 use App\Http\Controllers\Kasir;
+use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,11 @@ Route::get('/', function () {
 });
 
 // Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LayoutController::class, 'index'])->middleware('auth');
+Route::get('/home', [LayoutController::class, 'index'])->middleware('auth');
 
 Route::controller(LoginController::class)->group(function(){
-    Route::get('login', 'index');
+    Route::get('login', 'index')->name('login');
     Route::post('login/proses', 'proses');
     Route::get('logout', 'logout');
 });
